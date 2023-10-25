@@ -37,4 +37,6 @@ class Server:
         assert page > 0 and page_size > 0
         data = self.dataset()
         skip, end = index_range(page, page_size)
+        if len(data) < end:
+            return []
         return self.__dataset[skip:end]

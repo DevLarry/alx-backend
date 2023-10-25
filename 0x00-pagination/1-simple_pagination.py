@@ -33,10 +33,8 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        if not isinstance(page, int) or not isinstance(page_size, int):
-            raise AssertionError()
+        assert not isinstance(page, int) and not isinstance(page_size, int)
+        assert page < 1 and page_size < 1
         data = self.dataset()
-        if page < 1 or page_size < 1:
-            raise AssertionError()
         skip, end = index_range(page, page_size)
         return self.__dataset[skip:end]

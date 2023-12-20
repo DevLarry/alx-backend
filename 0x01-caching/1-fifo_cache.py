@@ -6,6 +6,7 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
+    """FIFOcache class"""
     def __init__(self):
         """Cache constructor"""
         super().__init__()

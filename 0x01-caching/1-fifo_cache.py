@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FIFO cache"""
+"""FIFO cache implementation"""
 
 
 from base_caching import BaseCaching
@@ -14,7 +14,7 @@ class FIFOCache(BaseCaching):
         """Puts a cache"""
         if key is None or item is None:
             return
-        if len(self.cache_data.keys()) == 4:
+        if len(self.cache_data.keys()) == self.MAX_ITEMS:
             ex = list(self.cache_data.keys())[0]
             self.cache_data.pop(ex)
             print(f"DISCARD: {ex}")
